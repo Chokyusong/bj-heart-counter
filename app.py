@@ -6,6 +6,17 @@ import streamlit as st
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 from datetime import datetime
+import streamlit as st
+
+# ==== 비밀번호 잠금 ====
+password = st.text_input("비밀번호를 입력하세요", type="password")
+
+if password != "abwmdpsxj!234":  # 👉 원하는 비밀번호로 변경
+    st.error("접속 권한이 없습니다.")
+    st.stop()
+
+# ==== 여기부터 기존 앱 코드 실행 ====
+st.title("BJ별 하트 정리 자동화")
 
 st.set_page_config(page_title="BJ별 하트 정리", layout="wide")
 st.title("BJ별 하트 정리 자동화")
